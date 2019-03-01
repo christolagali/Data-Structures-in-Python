@@ -1,4 +1,5 @@
 
+# PArent class
 class Dog(object):
 
     # class Attribute
@@ -12,7 +13,7 @@ class Dog(object):
     def description(self):
         return "{} is {} years old".format(self.name,self.age)
     
-    # isnatnce methods
+    # instance methods
     def speak(self,sound):
         return "{} says {}".format(self.name,sound)
     
@@ -29,6 +30,12 @@ class Bulldog(Dog):
 
     def run(self,speed):
         return "{} runs {} fast ".format(self.name,speed)
+
+
+##########Overriding functionality of parent class
+
+class otherSpecies(Dog):
+    species = "Reptile"
 
 
 # Child classes inherit attributes and
@@ -50,3 +57,11 @@ print(julie.run("Fast"))
 
 print(isinstance(julie,Dog))
 
+
+pepper = otherSpecies("Pepper",5)
+
+print(pepper.age)
+
+print(pepper.speak("croak"))
+
+print(pepper.species)
