@@ -57,6 +57,7 @@ class binarySearchTree:
             else:
                 currentNode.rightChild = t
     
+    
     # get: method to get the value assigned to a particular key
     def get(self,key):
 
@@ -72,7 +73,11 @@ class binarySearchTree:
         else:
             return None
     
-
+    """"
+        Helper function to aid get() method in:
+        - comparing the key of each node with the one searched for
+        - returning the node once found
+    """
     def _get(self,key,currentNode):
         
         if key == currentNode.key:
