@@ -65,3 +65,7 @@ print(pepper.age)
 print(pepper.speak("croak"))
 
 print(pepper.species)
+
+
+# Pets Class
+
