@@ -17,6 +17,17 @@ class TreeNode:
     def isLeaf(self):
         return True if self.leftChild == None and self.rightChild == None else False
 
+    def hasLeftChild(self):
+        return self.leftChild != None
+    
+    def hasRightChild(self):
+        return self.rightChild != None
+    
+    def isLeftChild(self):
+        return self.parent.leftChild == self
+    
+    def isRightChild(self):
+        return self.parent.rightChild == self
 
 
 class binarySearchTree:
@@ -129,7 +140,34 @@ class binarySearchTree:
             else:
                 currentNode.parent.rightChild = None
 
-    
+        # Node only has one child
+        else:
+
+            if currentNode.hasLeftChild():
+
+                if currentNode.isLeftChild():
+                    currentNode.leftChild.parent = currentNode.parent
+                    currentNode.parent.leftChild = currentNode.leftChild
+
+                elif currentNode.isRightChild():
+                    currentNode.leftChild.parent = currentNode.parent
+                    currentNode.parent.rightChild = currentNode.leftChild
+                
+                else:
+                    pass
+
+            
+            # current Node has a right child
+            else:
+                if currentNode.isLeftChild():
+                    currentNode.rightChild.parent = currentNode.parent
+                    currentNode.parent.leftChild = currentNode.rightChild
+                elif currentNode.isRightChild():
+                    currentNode.rightChild.parent = currentNode.parent
+                    currentNode.parent.rightChild = currentNode.rightChild
+                else:
+                    pass
+
     
 
 
@@ -156,7 +194,11 @@ t.put(70,70)
 
 t.put(23,23)
 
+t.put(90,90)
+
 t.put(93,93)
+
+t.put(92,92)
 
 t.put(24,24)
 
@@ -171,4 +213,13 @@ inOrder(t.root)
 
 #print(t.get(24))
 
-t.delete(100)
+# case 1: we delete a leaf
+#t.delete(100)
+
+# case 2: deleting a node that has only one leaf
+
+t.delete(90)
+
+print('Tree after deletion')
+
+inOrder(t.root)
