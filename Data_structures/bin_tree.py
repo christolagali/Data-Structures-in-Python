@@ -143,12 +143,15 @@ class binarySearchTree:
         # Node only has one child
         else:
 
+            # case currentNode has a left Child 
             if currentNode.hasLeftChild():
 
+                # case currentNode has a left Child and is a left child
                 if currentNode.isLeftChild():
                     currentNode.leftChild.parent = currentNode.parent
                     currentNode.parent.leftChild = currentNode.leftChild
 
+                # case currentNode has a left Child and is a right child
                 elif currentNode.isRightChild():
                     currentNode.leftChild.parent = currentNode.parent
                     currentNode.parent.rightChild = currentNode.leftChild
