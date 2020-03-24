@@ -21,3 +21,6 @@ def AtoB():
 
 
 print(AtoB())
+
+print(AtoB())
+
